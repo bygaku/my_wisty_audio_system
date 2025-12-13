@@ -40,6 +40,8 @@
 # add
 [Bb]uild/
 .vs/
+[Rr]elease/
+.idea/
 
 # debug information files
 *.dwo
