@@ -1,10 +1,9 @@
 file(GLOB SOURCE CONFIGURE_DEPENDS "*.cpp")
-message(STATUS "./Window/src")
-message(STATUS "IS_WIN32_APP=${IS_WIN32_APP}")
+message(STATUS "./Common/src")
 
 target_sources(${PROJECT_NAME}
-    PRIVATE
-    ${SOURCE}
+        PRIVATE
+        ${SOURCE}
 )
 
 target_include_directories(${PROJECT_NAME}
