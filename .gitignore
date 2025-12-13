@@ -42,6 +42,7 @@
 .vs/
 [Rr]elease/
 .idea/
+[Ii]mgui/
 
 # debug information files
 *.dwo

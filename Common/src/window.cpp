@@ -1,4 +1,4 @@
-#include "window.h"
+#include "../include/window.h"
 
 Window::Window(LPCTSTR window_class_name)
 	: window_class_name_(window_class_name)

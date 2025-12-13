@@ -18,10 +18,19 @@ public:
 	/** @brief Destructor */
 	~Window() = default;
 
-	void Show();
-	void Hide();
-	void Close();
+	// TODO: 機能追加予定
+	// void Show();
+	// void Hide();
+	// void Close();
+	// void OnClose();
+	// void OnResize();
 
+	// TODO: コメント作成
+	/**
+	 *
+	 * @param hInstance
+	 * @param window_class_name
+	 */
 	void Quit(HINSTANCE hInstance, LPCTSTR window_class_name);
 
 	/**
@@ -34,10 +43,6 @@ public:
 	 * @return If there is an error, return false.
 	 */
 	bool Initialize(HINSTANCE hInstance, const int& size_w = 800, const int& size_h = 600, const std::string& window_name = "default", bool main_window = false);
-
-	void OnClose();
-
-	void OnResize();
 
 	[[nodiscard]] HWND GetWindowHandle() const { return hWnd_; }
 
