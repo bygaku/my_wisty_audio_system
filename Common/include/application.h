@@ -1,5 +1,5 @@
-#ifndef APPLICATION_INCLUDE
-#define APPLICATION_INCLUDE
+#ifndef APPLICATION_HEADER
+#define APPLICATION_HEADER
 #include <windows.h>
 #include <string>
 #include "window.h"
@@ -75,4 +75,4 @@ private:
 };
 
 
-#endif // APPLICATION_INCLUDE
+#endif // APPLICATION_HEADER

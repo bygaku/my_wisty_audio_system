@@ -1,5 +1,5 @@
-#ifndef WINDOW_INCLUDE
-#define WINDOW_INCLUDE
+#ifndef WINDOW_HEADER
+#define WINDOW_HEADER
 #include <windows.h>
 #include <string>
 
@@ -63,4 +63,4 @@ private:
 
 };
 
-#endif // WINDOW_INCLUDE
+#endif // WINDOW_HEADER
