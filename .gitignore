@@ -37,5 +37,9 @@
 *.out
 *.app
 
+# add
+[Bb]uild/
+.vs/
+
 # debug information files
 *.dwo
