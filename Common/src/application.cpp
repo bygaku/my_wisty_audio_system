@@ -2,13 +2,13 @@
 
 Application::Application()
 	: hInstance_	(::GetModuleHandle(nullptr))
-	, main_window_	{ "Main Window" } {
+	, main_window_	{ "MainWindow" } {
 }
 
-bool Application::Initialize(const int &size_w, const int &size_h, const std::string& window_name) {
+bool Application::Initialize(const int &size_w, const int &size_h, const char* title) {
 	printf("Started Initializing the Application\n");
 
-	if (!main_window_.Initialize(hInstance_, size_w, size_h, window_name, true)) {
+	if (!main_window_.Initialize(hInstance_, size_w, size_h, title, true)) {
 		return false;
 	}
 

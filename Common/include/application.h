@@ -1,5 +1,6 @@
 #ifndef APPLICATION_HEADER
 #define APPLICATION_HEADER
+
 #include <windows.h>
 #include <string>
 #include "window.h"
@@ -39,10 +40,10 @@ public:
 	 * @brief Application initialization.
 	 * @param size_w: Window width. default: 800
 	 * @param size_h: Window height. default: 600
-	 * @param window_name: The name of window title bar. default: "Default"
+	 * @param title: The name of window title bar. default: "Default"
 	 * @return If there is an error, return false.
 	*/
-	bool Initialize(const int& size_w = 800, const int& size_h = 600, const std::string& window_name = "default");
+	bool Initialize(const int& size_w = 800, const int& size_h = 600, const char* title = "Default");
 
 	/**
 	 * @brief Running process.

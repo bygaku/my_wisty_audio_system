@@ -1,9 +1,11 @@
 #include "../include/window.h"
 
+#include <cstdio>
+
 Window::Window(LPCTSTR window_class_name)
 	: window_class_name_(window_class_name)
 	, hWnd_			(nullptr)
-	, window_name_	("Default")
+	, title_name_	("Default")
 	, w_			(800)
 	, h_			(600) {
 }
@@ -12,10 +14,14 @@ void Window::Quit(HINSTANCE hInstance, LPCTSTR window_class_name) {
 	UnregisterClass(window_class_name, hInstance);
 }
 
-bool Window::Initialize(HINSTANCE hInstance, const int &size_w, const int &size_h, const std::string &window_name, bool main_window) {
+bool Window::Initialize(HINSTANCE hInstance, const int &size_w, const int &size_h, const char* title, bool main_window) {
 	if (hInstance == nullptr) {
 		return false;
 	}
+
+	w_ = size_w;
+	h_ = size_h;
+	title_name_ = title;
 
 	WNDCLASSEX wc{};
 	wc.hInstance			= hInstance;
@@ -34,7 +40,7 @@ bool Window::Initialize(HINSTANCE hInstance, const int &size_w, const int &size_
 	hWnd_ = CreateWindowEx(
 		WS_EX_TOOLWINDOW,
 		window_class_name_,
-		window_name_,
+		title_name_,
 		WS_OVERLAPPED | WS_CAPTION | WS_VISIBLE | WS_SYSMENU,
 		CW_USEDEFAULT, CW_USEDEFAULT,
 		w_, h_,
