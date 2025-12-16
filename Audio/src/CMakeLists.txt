@@ -1,4 +1,4 @@
-file(GLOB SOURCE CONFIGURE_DEPENDS "*.cpp")
+file(GLOB SOURCE CONFIGURE_DEPENDS "./*.cpp")
 message(STATUS "./Audio/src")
 
 target_sources(${PROJECT_NAME}
