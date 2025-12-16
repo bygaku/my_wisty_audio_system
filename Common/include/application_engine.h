@@ -14,9 +14,10 @@ namespace wwist {
 	 *		using namespace wwist;
 	 *
 	 *		Engine engine;				// this!
-	 *		UserApplication user_app;	// Inherited from IApplication.
+	 *		auto app = std::make_unique<UserApplication>();	// Inherited from IApplication.
 	 *
-	 *		if (!engine.Initialize(&user_app) // default setting ) {
+	 *		if (!engine.Initialize(std::move(app), "TestApp")) {
+	 *			printf("!! Initialize Failed !!\n");
 	 *			return -1;
 	 *		}
 	 *
