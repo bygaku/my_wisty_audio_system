@@ -3,6 +3,12 @@
 
 #include <if_app.h>
 
+#include <memory>
+
+namespace wwist::ui {
+	class UIManager;
+}
+
 namespace wwist {
 	/**
 	 * @attention This class operated by SoftwareEngine.
@@ -45,6 +51,9 @@ namespace wwist {
 		 * @remark It's called on Engine, when application closing.
 		 */
 		void Quit() override;
+
+	private:
+		std::unique_ptr<ui::UIManager> ui_manager_;
 	};
 }
 
