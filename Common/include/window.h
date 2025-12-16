@@ -47,7 +47,7 @@ public:
 	bool Initialize(HINSTANCE hInstance, const int& size_w = 800, const int& size_h = 600, const char* title = "Default", bool main_window = false);
 
 	/**
-	 * @return The specified window handle. NO DISCARD!!
+	 * @return The specified window handle.
 	 */
 	[[nodiscard]] HWND GetWindowHandle() const { return hWnd_; }
 

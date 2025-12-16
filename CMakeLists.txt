@@ -60,7 +60,7 @@ endif()
 # Linked libraries
 target_link_libraries(${PROJECT_NAME}
         PRIVATE
-        ${LIB_IMGUI}
+        imgui
         d3d11
         dxgi
 )
