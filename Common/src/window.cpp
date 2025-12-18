@@ -55,7 +55,11 @@ bool Window::Initialize(HINSTANCE hInstance, const int &size_w, const int &size_
 	return true;
 }
 
+extern LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
+
 LRESULT Window::StaticWndProc(HWND hWnd, UINT uMsg, WPARAM wP, LPARAM lP) {
+	if (ImGui_ImplWin32_WndProcHandler(hWnd, uMsg, wP, lP)) return true;
+
 	switch (uMsg) {
 		case WM_CREATE: {
 			printf("WM_CREATE called.\n");
