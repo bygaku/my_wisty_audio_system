@@ -8,6 +8,7 @@ Window::Window(LPCTSTR window_class_name)
 	, title_name_	("Default")
 	, w_			(800)
 	, h_			(600) {
+	// Nothing to do here.
 }
 
 void Window::Quit(HINSTANCE hInstance, LPCTSTR window_class_name) {
@@ -15,14 +16,14 @@ void Window::Quit(HINSTANCE hInstance, LPCTSTR window_class_name) {
 }
 
 bool Window::Initialize(HINSTANCE hInstance, const int &size_w, const int &size_h, const char* title, bool main_window) {
-	if (hInstance == nullptr) {
-		return false;
-	}
+	if (hInstance == nullptr) return false;
 
-	w_ = size_w;
-	h_ = size_h;
+	// Window custom settings.
+	w_ 			= size_w;
+	h_ 			= size_h;
 	title_name_ = title;
 
+	// Window configurations.
 	WNDCLASSEX wc{};
 	wc.hInstance			= hInstance;
 	wc.lpszClassName		= window_class_name_;
@@ -34,9 +35,9 @@ bool Window::Initialize(HINSTANCE hInstance, const int &size_w, const int &size_
 	wc.hCursor				= LoadCursor(hInstance, IDC_ARROW);
 	wc.lpszMenuName			= nullptr;
 	wc.hbrBackground		= GetSysColorBrush(COLOR_WINDOW);
-
 	if (!RegisterClassEx(&wc)) return false;
 
+	// Create main window.
 	hWnd_ = CreateWindowEx(
 		WS_EX_TOOLWINDOW,
 		window_class_name_,
@@ -49,32 +50,31 @@ bool Window::Initialize(HINSTANCE hInstance, const int &size_w, const int &size_
 		hInstance,
 		nullptr
 		);
-
 	if (!hWnd_) return false;
 
 	return true;
 }
 
+extern LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
+
 LRESULT Window::StaticWndProc(HWND hWnd, UINT uMsg, WPARAM wP, LPARAM lP) {
+	if (ImGui_ImplWin32_WndProcHandler(hWnd, uMsg, wP, lP)) return true;
+
 	switch (uMsg) {
 		case WM_CREATE: {
-			printf("Creating the Window\n");
+			printf("WM_CREATE called.\n");
 			auto* tpCreateSt = reinterpret_cast<CREATESTRUCT*>(lP);
 
-#ifndef WIN32_APP
-#endif
 			::ShowWindow(hWnd, SW_SHOWNORMAL);
 			::UpdateWindow(hWnd);
-			printf("Window Creation Completed\n");
 		}
-			break;
+		break;
 		case WM_DESTROY: {
-			printf("Window Destroy\n");
+			printf("WM_DESTROY called\n");
 			PostQuitMessage(0);
 		}
-			break;
-		default:
-			return DefWindowProc(hWnd, uMsg, wP, lP);
+		break;
+		default: return DefWindowProc(hWnd, uMsg, wP, lP);
 	}
 
 	return 0;
