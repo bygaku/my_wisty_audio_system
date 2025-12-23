@@ -54,7 +54,7 @@ public:
 	/**
 	 * @brief IApplication::Initialize() called.
 	 */
-	bool InitUserApp() const {
+	[[nodiscard]] bool InitUserApp() const {
 		if (!user_app_) assert("user_app nullptr");
 
 		if (!user_app_->Initialize()) {
@@ -67,7 +67,7 @@ public:
 	/**
 	 * @brief DX11 initialization.
 	 */
-	bool InitDX11() {
+	[[nodiscard]] bool InitDX11() {
 		auto hwnd = main_window_.GetWindowHandle();   // Window Handle
 
 		DXGI_SWAP_CHAIN_DESC sd = {};
@@ -100,7 +100,7 @@ public:
 	/**
 	 * @brief ImGUI initialization.
 	 */
-	bool InitImGUI() const {
+	[[nodiscard]] bool InitImGUI() const {
 		IMGUI_CHECKVERSION();
 		ImGui::CreateContext();
 		ImGuiIO& io = ImGui::GetIO();

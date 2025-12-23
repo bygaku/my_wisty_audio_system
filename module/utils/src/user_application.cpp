@@ -4,10 +4,7 @@
 #include "user_application.h"
 
 // ImGui
-#include "../../lib/imgui/imgui.h"
-
-
-
+#include "imgui.h"
 
 using namespace wwist;
 
